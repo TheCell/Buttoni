@@ -17,11 +17,11 @@ public class Pancake : MonoBehaviour
 	{
 		if (Input.GetButtonDown("c"))
 		{
-			turnLeft();
+			turnRight();
 		}
 		if (Input.GetButtonDown("b"))
 		{
-			turnRight();
+			turnLeft();
 		}
 		if (Input.GetButtonDown("v"))
 		{
@@ -33,19 +33,19 @@ public class Pancake : MonoBehaviour
 	{
 		Rigidbody rb = pancake.GetComponent<Rigidbody>();
 		rb.AddRelativeForce(new Vector3(0.0f, 100.0f, 0.0f));
-		rb.AddRelativeTorque(new Vector3(0.0f, 600.0f, 0.0f));
+		rb.AddRelativeTorque(new Vector3(0.0f, 200.0f, 0.0f));
 	}
 
 	void turnRight()
 	{
 		Rigidbody rb = pancake.GetComponent<Rigidbody>();
 		rb.AddRelativeForce(new Vector3(0.0f, 100.0f, 0.0f));
-		rb.AddRelativeTorque(new Vector3(0.0f, -600.0f, 0.0f));
+		rb.AddRelativeTorque(new Vector3(0.0f, -200.0f, 0.0f));
 	}
 
 	void jump()
 	{
 		Rigidbody rb = pancake.GetComponent<Rigidbody>();
-		rb.AddRelativeForce(new Vector3(400.0f, 1500.0f, 0.0f));
+		rb.AddRelativeForce(new Vector3(400.0f, 800.0f, 0.0f));
 	}
 }
