@@ -35,7 +35,7 @@ public class SwitchLevel : MonoBehaviour
 				SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
 				break;
 			case Levels.SnailLevel:
-				SceneManager.LoadScene("simonTestscene", LoadSceneMode.Single);
+				SceneManager.LoadScene("SimonTestscene", LoadSceneMode.Single);
 				break;
 		}
 	}
