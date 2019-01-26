@@ -4,62 +4,49 @@ using UnityEngine;
 
 public class Crab : MonoBehaviour
 {
-	private GameObject crab;
-	private float legForce = 300.0f;
-	public GameObject leg1;
-	public GameObject leg2;
-	public GameObject leg3;
-	public GameObject leg4;
-	public GameObject leg5;
-	public GameObject leg6;
-	public GameObject leg7;
-	public GameObject leg8;
+	public HingeJoint bottomLeg1Hinge;
+	public HingeJoint bottomLeg2Hinge;
+	public HingeJoint bottomLeg3Hinge;
+	public HingeJoint bottomLeg4Hinge;
+	public HingeJoint bottomLeg5Hinge;
+	public HingeJoint bottomLeg6Hinge;
+	public HingeJoint bottomLeg7Hinge;
+	public HingeJoint bottomLeg8Hinge;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		crab = gameObject;
-	}
+        
+    }
 
     // Update is called once per frame
     void Update()
-    {
-		moveLeg();
-	}
-
-	private void moveLeg()
 	{
-
 		if (Input.GetButton("8"))
 		{
 		}
 		else
 		{
 		}
-		
 		if (Input.GetButton("i"))
 		{
-			addForce(leg6);
-			addForce(leg8);
+			closeJoint(bottomLeg2Hinge);
+			closeJoint(bottomLeg4Hinge);
 		}
 		else
 		{
-			HingeJoint hinge = leg6.GetComponent<HingeJoint>();
-			hinge.useMotor = false;
-			HingeJoint hinge8 = leg8.GetComponent<HingeJoint>();
-			hinge8.useMotor = false;
+			openJoint(bottomLeg2Hinge);
+			openJoint(bottomLeg4Hinge);
 		}
-		if (Input.GetButton("k"))
+		if (Input.GetButton("i"))
 		{
-			addForce(leg5);
-			addForce(leg7);
+			closeJoint(bottomLeg1Hinge);
+			closeJoint(bottomLeg3Hinge);
 		}
 		else
 		{
-			HingeJoint hinge5 = leg5.GetComponent<HingeJoint>();
-			hinge5.useMotor = false;
-			HingeJoint hinge = leg7.GetComponent<HingeJoint>();
-			hinge.useMotor = false;
+			openJoint(bottomLeg1Hinge);
+			openJoint(bottomLeg3Hinge);
 		}
 		if (Input.GetButton("m"))
 		{
@@ -77,27 +64,23 @@ public class Crab : MonoBehaviour
 		}
 		if (Input.GetButton("w"))
 		{
-			addForce(leg2);
-			addForce(leg4);
+			closeJoint(bottomLeg6Hinge);
+			closeJoint(bottomLeg8Hinge);
 		}
 		else
 		{
-			HingeJoint hinge = leg2.GetComponent<HingeJoint>();
-			hinge.useMotor = false;
-			HingeJoint hinge4 = leg4.GetComponent<HingeJoint>();
-			hinge4.useMotor = false;
+			openJoint(bottomLeg6Hinge);
+			openJoint(bottomLeg8Hinge);
 		}
-		if (Input.GetButton("s"))
+		if (Input.GetButton("w"))
 		{
-			addForce(leg1);
-			addForce(leg3);
+			closeJoint(bottomLeg5Hinge);
+			closeJoint(bottomLeg7Hinge);
 		}
 		else
 		{
-			HingeJoint hinge1 = leg1.GetComponent<HingeJoint>();
-			hinge1.useMotor = false;
-			HingeJoint hinge = leg3.GetComponent<HingeJoint>();
-			hinge.useMotor = false;
+			openJoint(bottomLeg5Hinge);
+			openJoint(bottomLeg7Hinge);
 		}
 		if (Input.GetButton("x"))
 		{
@@ -107,16 +90,17 @@ public class Crab : MonoBehaviour
 		}
 	}
 
-	private void addForce(GameObject leg)
+	void closeJoint(HingeJoint joint)
 	{
-		HingeJoint hinge = leg.GetComponent<HingeJoint>();
+		JointSpring jointSpring = joint.spring;
+		jointSpring.targetPosition = 160.0f;
+		joint.spring = jointSpring;
+	}
 
-		// Make the hinge motor rotate with 90 degrees per second and a strong force.
-		JointMotor motor = hinge.motor;
-		motor.force = legForce;
-		motor.targetVelocity = -90;
-		motor.freeSpin = false;
-		hinge.motor = motor;
-		hinge.useMotor = true;
+	void openJoint(HingeJoint joint)
+	{
+		JointSpring jointSpring = joint.spring;
+		jointSpring.targetPosition = -30.0f;
+		joint.spring = jointSpring;
 	}
 }
