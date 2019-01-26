@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CrabScene.unity
     guid: c4c68d8b93a6f3442b63614c99e2a8aa
+  - enabled: 1
+    path: Assets/Scenes/PancakeScene.unity
+    guid: 29722b504c4da8146a07b6d8b42492da
   m_configObjects: {}

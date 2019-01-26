@@ -37,11 +37,14 @@ public class SwitchLevel : MonoBehaviour
 
 		switch (level)
 		{
-			case Levels.SampleScene:
-				SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-				break;
 			case Levels.SnailLevel:
 				SceneManager.LoadScene("SnailScene", LoadSceneMode.Single);
+				break;
+			case Levels.CrabScene:
+				SceneManager.LoadScene("CrabScene", LoadSceneMode.Single);
+				break;
+			case Levels.PancakeScene:
+				SceneManager.LoadScene("PancakeScene", LoadSceneMode.Single);
 				break;
 		}
 	}
@@ -49,8 +52,9 @@ public class SwitchLevel : MonoBehaviour
 
 public enum Levels
 {
-	SampleScene,
-	SnailLevel
+	SnailLevel,
+	CrabScene,
+	PancakeScene
 }
 
 /*
