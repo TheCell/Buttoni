@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: e026af61e6649ec45b016f79feeb01ce
   - enabled: 1
-    path: Assets/Scenes/SimonTestscene.unity
+    path: Assets/Scenes/CrabsTestscene.unity
     guid: 3054918c7fcda494b9bca95082c6d69f
   - enabled: 1
     path: Assets/Scenes/SnailScene.unity
