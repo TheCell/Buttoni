@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class SwitchLevel : MonoBehaviour
 {
 	public Levels switchTo;
+	private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        audioSource = GetComponent<AudioSource>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -21,14 +22,19 @@ public class SwitchLevel : MonoBehaviour
 
 	void OnTriggerEnter(Collider collider)
 	{
+		
 		if (collider.gameObject.tag == "Player")
 		{
-			switchLevel(this.switchTo);
+			audioSource.Play(0);
+			//yield return new WaitForSeconds(3.0f);
+			StartCoroutine(switchLevel(this.switchTo));
 		}
 	}
 
-	public void switchLevel(Levels level)
+	IEnumerator switchLevel(Levels level)
 	{
+		yield return new WaitForSeconds(3.0f);
+
 		switch (level)
 		{
 			case Levels.SampleScene:
