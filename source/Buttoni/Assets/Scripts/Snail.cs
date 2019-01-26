@@ -5,8 +5,6 @@ using UnityEngine;
 public class Snail : MonoBehaviour
 {
 	private GameObject snail;
-	public GameObject fronPoint;
-	public GameObject backPoint;
 	public float maxScale = 3.0f;
 	private float currentScale = 1.0f;
 	private float scaleStep = 1.0f;
