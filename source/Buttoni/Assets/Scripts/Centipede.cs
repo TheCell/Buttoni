@@ -37,6 +37,10 @@ public class Centipede : MonoBehaviour
     {
 		if (Input.anyKeyDown)
 		{
+		}
+
+		if (Input.anyKey)
+		{
 			pushCentipede();
 			randomLegMovement();
 		}
