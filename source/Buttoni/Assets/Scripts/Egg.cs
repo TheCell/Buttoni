@@ -5,7 +5,7 @@ using UnityEngine;
 public class Egg : MonoBehaviour
 {
 	private GameObject egg;
-	private float pushForce = 800.0f;
+	private float pushForce = 1000.0f;
 
     // Start is called before the first frame update
     void Start()
