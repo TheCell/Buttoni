@@ -5,26 +5,33 @@ using UnityEngine;
 public class Pancake : MonoBehaviour
 {
 	private GameObject pancake;
+	private AudioSource audioSource;
+	public AudioClip[] audioClips;
 
     // Start is called before the first frame update
     void Start()
     {
 		pancake = gameObject;
-    }
+		audioSource = pancake.GetComponent<AudioSource>();
+
+	}
 
     // Update is called once per frame
     void Update()
 	{
 		if (Input.GetButtonDown("c"))
 		{
+			audioSource.PlayOneShot(audioClips[(int)Mathf.Floor(Random.value * audioClips.Length)]);
 			turnRight();
 		}
 		if (Input.GetButtonDown("b"))
 		{
+			audioSource.PlayOneShot(audioClips[(int)Mathf.Floor(Random.value * audioClips.Length)]);
 			turnLeft();
 		}
 		if (Input.GetButtonDown("v"))
 		{
+			audioSource.PlayOneShot(audioClips[(int)Mathf.Floor(Random.value * audioClips.Length)]);
 			jump();
 		}
 	}

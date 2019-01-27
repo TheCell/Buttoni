@@ -6,11 +6,14 @@ public class Egg : MonoBehaviour
 {
 	private GameObject egg;
 	private float pushForce = 1000.0f;
+	private AudioSource audioSource;
+	public AudioClip[] audioClips;
 
     // Start is called before the first frame update
     void Start()
     {
 		egg = gameObject;
+		audioSource = egg.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,11 @@ public class Egg : MonoBehaviour
 		{
 			pushRight();
 		}
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		audioSource.PlayOneShot(audioClips[(int)Mathf.Floor(Random.value * audioClips.Length)]);
 	}
 
 	private void pushLeft()
