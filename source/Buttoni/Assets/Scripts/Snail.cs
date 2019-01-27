@@ -11,23 +11,29 @@ public class Snail : MonoBehaviour
 	private bool isEnlarge = false;
 	private bool fixFront = false;
 	private bool fixBack = false;
+	private AudioSource snailSoundSource;
+	public AudioClip[] shrinkClips;
+	public AudioClip[] enlargeClips;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		// controlls: z,i,p
 		snail = gameObject;
-    }
+		snailSoundSource = snail.GetComponent<AudioSource>();
+	}
 
     // Update is called once per frame
     void Update()
 	{
 		if (Input.GetButtonDown("i"))
 		{
+			snailSoundSource.PlayOneShot(enlargeClips[(int)Mathf.Floor(Random.value * enlargeClips.Length)]);
 			isEnlarge = true;
 		}
 		if (Input.GetButtonUp("i"))
 		{
+			snailSoundSource.PlayOneShot(shrinkClips[(int)Mathf.Floor(Random.value * enlargeClips.Length)]);
 			isEnlarge = false;
 		}
 		if (Input.GetButtonDown("p"))
