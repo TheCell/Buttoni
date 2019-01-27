@@ -92,6 +92,7 @@ public class Crab : MonoBehaviour
 
 	void closeJoint(HingeJoint joint)
 	{
+		jumpUp();
 		JointSpring jointSpring = joint.spring;
 		jointSpring.targetPosition = 160.0f;
 		joint.spring = jointSpring;
@@ -102,5 +103,11 @@ public class Crab : MonoBehaviour
 		JointSpring jointSpring = joint.spring;
 		jointSpring.targetPosition = -30.0f;
 		joint.spring = jointSpring;
+	}
+
+	private void jumpUp()
+	{
+		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+		rb.AddRelativeForce(new Vector3(10.0f, 0.0f, 20.0f));
 	}
 }
