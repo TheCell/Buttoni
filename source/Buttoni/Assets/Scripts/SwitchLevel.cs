@@ -49,6 +49,12 @@ public class SwitchLevel : MonoBehaviour
 			case Levels.CentipedeScene:
 				SceneManager.LoadScene("CentipedeScene", LoadSceneMode.Single);
 				break;
+			case Levels.EggScene:
+				SceneManager.LoadScene("EggScene", LoadSceneMode.Single);
+				break;
+			case Levels.IntroScene:
+				SceneManager.LoadScene("IntroScene", LoadSceneMode.Single);
+				break;
 		}
 		
 	}
@@ -73,7 +79,9 @@ public enum Levels
 	SnailLevel,
 	CrabScene,
 	PancakeScene,
-	CentipedeScene
+	CentipedeScene,
+	EggScene,
+	IntroScene
 }
 
 /*
