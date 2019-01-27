@@ -12,16 +12,23 @@ public class Crab : MonoBehaviour
 	public HingeJoint bottomLeg6Hinge;
 	public HingeJoint bottomLeg7Hinge;
 	public HingeJoint bottomLeg8Hinge;
+	private AudioSource audioSource;
+	public AudioClip[] audioClips;
 
 	// Start is called before the first frame update
 	void Start()
     {
-        
+		audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
 	{
+		if (Input.GetButtonDown("i") || Input.GetButtonDown("w"))
+		{
+			audioSource.PlayOneShot(audioClips[(int)Mathf.Floor(Random.value * audioClips.Length)]);
+		}
+
 		if (Input.GetButton("8"))
 		{
 		}
