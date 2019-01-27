@@ -7,6 +7,7 @@ public class SwitchLevel : MonoBehaviour
 {
 	public Levels switchTo;
 	private AudioSource audioSource;
+	public AudioClip[] cellebrationClips;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class SwitchLevel : MonoBehaviour
 		
 		if (collider.gameObject.tag == "Player")
 		{
-			audioSource.Play(0);
+			audioSource.PlayOneShot(cellebrationClips[(int)Mathf.Floor(Random.value * cellebrationClips.Length)]);
 			//yield return new WaitForSeconds(3.0f);
 			StartCoroutine(switchLevel(this.switchTo));
 		}

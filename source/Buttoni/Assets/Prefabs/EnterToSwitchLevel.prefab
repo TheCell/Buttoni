@@ -59,6 +59,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchTo: 1
+  cellebrationClips:
+  - {fileID: 8300000, guid: 68a6101220343d94cba86220a6c8145a, type: 3}
+  - {fileID: 8300000, guid: 8e9b19114438f134aaf3271927115144, type: 3}
+  - {fileID: 8300000, guid: 476536f2530f4c343b214d9ba9f3b550, type: 3}
+  - {fileID: 8300000, guid: 3026211314edeea479d55a9d39917dc5, type: 3}
+  - {fileID: 8300000, guid: 6165e214bb80a7b4c884bf027756d12b, type: 3}
+  - {fileID: 8300000, guid: 8b5fd0b512d6ae4489e3d2b1c0ffb690, type: 3}
+  - {fileID: 8300000, guid: 019cad5ca5af82a4db828c2c89df1280, type: 3}
 --- !u!82 &1773169501081459178
 AudioSource:
   m_ObjectHideFlags: 0
