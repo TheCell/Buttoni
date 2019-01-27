@@ -52,6 +52,11 @@ public class SwitchLevel : MonoBehaviour
 		}
 		
 	}
+
+	public void switchLevelInstant(int levelNumber)
+	{
+		SceneManager.LoadScene(levelNumber, LoadSceneMode.Single);
+	}
 }
 
 public enum Levels
