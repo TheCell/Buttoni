@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EggScene.unity
     guid: b588220fc72c5914a8ad011951c0bd46
+  - enabled: 1
+    path: Assets/Scenes/ThankYouScene.unity
+    guid: ec656f21dbbdf47fe9cee7f8a3fe9a3e
   m_configObjects: {}

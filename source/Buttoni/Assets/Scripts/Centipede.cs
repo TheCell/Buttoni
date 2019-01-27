@@ -45,11 +45,17 @@ public class Centipede : MonoBehaviour
 		{
 			pushCentipede();
 			randomLegMovement();
-			audioSource.Play();
+			if (!audioSource.isPlaying)
+			{
+				audioSource.Play();
+			}
 		}
 		else
 		{
-			audioSource.Pause();
+			if (audioSource.isPlaying)
+			{
+				audioSource.Pause();
+			}
 		}
 
 	}
