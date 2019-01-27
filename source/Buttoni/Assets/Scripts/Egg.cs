@@ -16,12 +16,12 @@ public class Egg : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-		if (Input.GetButtonDown("t"))
+		if (Input.GetButtonDown("z"))
 		{
 			pushLeft();
 		}
 
-		if (Input.GetButtonDown("z"))
+		if (Input.GetButtonDown("t"))
 		{
 			pushRight();
 		}
