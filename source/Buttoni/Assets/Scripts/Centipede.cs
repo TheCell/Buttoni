@@ -35,7 +35,7 @@ public class Centipede : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.anyKey)
+		if (Input.anyKeyDown)
 		{
 			pushCentipede();
 			randomLegMovement();
