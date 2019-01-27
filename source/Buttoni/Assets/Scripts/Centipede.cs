@@ -8,11 +8,13 @@ public class Centipede : MonoBehaviour
 	private float pushForce = -500.0f;
 	public GameObject feet;
 	private GameObject[] allFeets;
+	private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
 		centipede = gameObject;
+		audioSource = centipede.GetComponent<AudioSource>();
 		allFeets = new GameObject[140];
 
 		for (int i = 0; i < allFeets.Length; i++)
@@ -43,6 +45,11 @@ public class Centipede : MonoBehaviour
 		{
 			pushCentipede();
 			randomLegMovement();
+			audioSource.Play();
+		}
+		else
+		{
+			audioSource.Pause();
 		}
 
 	}
