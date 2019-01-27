@@ -57,6 +57,15 @@ public class SwitchLevel : MonoBehaviour
 	{
 		SceneManager.LoadScene(levelNumber, LoadSceneMode.Single);
 	}
+
+	public void quitGame()
+	{
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#else
+		Application.Quit();
+#endif
+	}
 }
 
 public enum Levels
