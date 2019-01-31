@@ -5,7 +5,7 @@ using UnityEngine;
 public class Centipede : MonoBehaviour
 {
 	private GameObject centipede;
-	private float pushForce = -5.1f;
+	private float pushForce = -0.3f;
 	public GameObject feet;
 	private GameObject[] allFeets;
 	private AudioSource audioSource;
@@ -86,8 +86,12 @@ public class Centipede : MonoBehaviour
 		float applyForce = pushForce;
 		if (Input.GetButton("speedboost"))
 		{
-			applyForce -= 1.0f;
+			applyForce -= 0.5f;
 		}
-		rb.AddRelativeForce(new Vector3(applyForce, 0.0f, 0.0f));
+
+        // rb.AddRelativeForce(new Vector3(applyForce, 0.0f, 0.0f));
+        Vector3 velocity = rb.velocity;
+        velocity.x = applyForce;
+        rb.velocity = velocity;
 	}
 }
