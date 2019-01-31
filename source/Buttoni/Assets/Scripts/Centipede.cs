@@ -9,12 +9,14 @@ public class Centipede : MonoBehaviour
 	public GameObject feet;
 	private GameObject[] allFeets;
 	private AudioSource audioSource;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
 		centipede = gameObject;
-		audioSource = centipede.GetComponent<AudioSource>();
+        rb = centipede.GetComponent<Rigidbody>();
+        audioSource = centipede.GetComponent<AudioSource>();
 		allFeets = new GameObject[140];
 
 		for (int i = 0; i < allFeets.Length; i++)
@@ -81,7 +83,6 @@ public class Centipede : MonoBehaviour
 
 	private void pushCentipede()
 	{
-		Rigidbody rb = centipede.GetComponent<Rigidbody>();
 		float applyForce = pushForce;
 		if (Input.GetButton("speedboost"))
 		{
