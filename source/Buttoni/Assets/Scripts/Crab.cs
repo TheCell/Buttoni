@@ -14,6 +14,7 @@ public class Crab : MonoBehaviour
 	public HingeJoint bottomLeg8Hinge;
 	private AudioSource audioSource;
 	public AudioClip[] audioClips;
+    private bool shouldJump = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -97,9 +98,18 @@ public class Crab : MonoBehaviour
 		}
 	}
 
-	void closeJoint(HingeJoint joint)
+    private void FixedUpdate()
+    {
+        if (shouldJump)
+        {
+            jumpUp();
+            this.shouldJump = true;
+        }
+    }
+
+    void closeJoint(HingeJoint joint)
 	{
-		jumpUp();
+        this.shouldJump = true;
 		JointSpring jointSpring = joint.spring;
 		jointSpring.targetPosition = 160.0f;
 		joint.spring = jointSpring;
