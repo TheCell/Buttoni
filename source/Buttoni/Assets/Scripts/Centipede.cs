@@ -5,7 +5,7 @@ using UnityEngine;
 public class Centipede : MonoBehaviour
 {
 	private GameObject centipede;
-	private float pushForce = -500.0f;
+	private float pushForce = -5.1f;
 	public GameObject feet;
 	private GameObject[] allFeets;
 	private AudioSource audioSource;
@@ -57,13 +57,20 @@ public class Centipede : MonoBehaviour
 				audioSource.Pause();
 			}
 		}
-
 	}
 
-	private void randomLegMovement()
+    private void FixedUpdate()
+    {
+        if (Input.anyKey)
+        {
+            pushCentipede();
+        }
+    }
+
+    private void randomLegMovement()
 	{
 		//currentRotation = feet.transform.localRotation;
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 20; i++)
 		{
 			GameObject footpair = allFeets[(int)Mathf.Floor(Random.value * allFeets.Length)];
 			float randomXRotation = (Random.value * 2 - 1) * 20.0f - 90.0f;
@@ -78,8 +85,8 @@ public class Centipede : MonoBehaviour
 		float applyForce = pushForce;
 		if (Input.GetButton("speedboost"))
 		{
-			applyForce -= 80.0f;
+			applyForce -= 1.0f;
 		}
-		rb.AddRelativeForce(new Vector3(applyForce * Time.deltaTime, 0.0f, 0.0f));
+		rb.AddRelativeForce(new Vector3(applyForce, 0.0f, 0.0f));
 	}
 }
